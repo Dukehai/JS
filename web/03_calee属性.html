@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        //需求:把如下的数据中的所有text替换成name属性
+        var arr = [
+            [
+                {
+                    "id": 1,
+                    "text": "业务模块",
+                    "children": [
+                        {"id": 11, "text": "品牌管理"},
+                        {"id": 12, "text": "仓库管理"}
+                    ]
+                },
+                {
+                    "id": 2,
+                    "text": "系统模块",
+                    "children": [
+                        {"id": 11, "text": "员工管理"},
+                        {"id": 12, "text": "部门管理"}
+                    ]
+                }
+            ]
+        ]
+        function convert(arr) {
+            //遍历上面数组
+            for (var index = 0; index < arr.length; index++) {
+                //获取数组里面的值
+                var obj = arr[index];
+                //把obj中的text的属性的值获取并设置给obj的name属性
+                obj.name = obj.text;
+                //删除obj对象的text属性
+                delete obj.text;
+                if (obj.children) {
+                    //调用当前的函数
+                    arguments.callee(obj.children);
+                }
+            }
+        }
+        convert(arr);
+        console.log(arr);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

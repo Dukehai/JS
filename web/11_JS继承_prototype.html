@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+    function Person(name,age) {
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.sleep=function () {
+        console.log(this.name+":"+this.age+"洗洗睡了");
+    };
+
+    function Student(name,age,sn) {
+        Person.apply(this.arguments);
+        this.sn=sn;
+    };
+    //使用prototype的方式来继承
+        Student.prototype=new Person();//student继承Person
+        var s1=new Student("jack",19,"001");
+        console.log(s1);
+        s1.sleep();
+        console.log(s1 instanceof Student);
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

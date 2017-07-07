@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+
+        //this关键字
+        function Person(name,age) {
+            this.name=name;
+            this.age = age;
+            this.say=say;//定义方法
+        }
+        function say() {
+            console.log(this.name+":"+this.age);
+        }
+        var p =new Person("json",20);
+        p.say();
+        say();
+
+        var msg="msg1";
+        var obj={};
+        obj.msg="msg2";
+        obj.say =function () {
+            var msg="msg3";
+            console.log(this.msg);
+        }
+        obj.eat=function (name,price) {
+            console.log(this);
+            console.log(name,price);
+        }
+
+        obj.say.call(window);
+        obj.say.call(window,"泡面",3);
+        obj.say.apply(window);
+        obj.say.apply(window,["泡面",5]);
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

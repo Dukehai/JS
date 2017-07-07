@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        //立即函数,函数立即执行
+        (function () {
+            console.log("系统初始化");
+        })
+        ();//()表示调用立即函数
+
+        //使用立即函数编写一个id自增长函数
+        (function () {
+            var id=1;
+            window.getId=function () {//getId是一个函数
+                return id++;
+            }
+        })
+
+        ();//getId is not defined
+        //调用立即函数
+        console.log(getId());
+        console.log(getId());
+        id=1;
+        console.log(getId());
+        console.log(getId());
+    </script>
+</head>
+<body>
+
+</body>
+</html>

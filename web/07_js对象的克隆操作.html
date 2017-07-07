@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        //先定义一个函数,具有属性和方法
+        var obj=new Object();
+        obj.name = "hesj";
+        obj.age = 12;
+        obj.say=function () {
+            console.log(this.name+":"+this.age);
+        };
+        console.log(obj);
+        //定义一个新函数来克隆旧函数
+        //可以使用for..in..关键字来遍历并拷贝属性值：
+        function cloneObj() {
+            var newObj=new Object();
+            for(var index in obj){
+                newObj[index]=obj[index];
+            }
+            return newObj;
+        }
+        var newObj=cloneObj(obj);
+        newObj.say();
+        console.log(newObj);
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

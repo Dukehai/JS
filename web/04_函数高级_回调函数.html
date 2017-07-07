@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+//  需求:看完电影后,跟女友各回各家,到家后给我发短息
+    function sendMsg() {
+        console.log("要吃饭了")
+    }
+    function goHome(callback) {//回调函数
+        console.log("到家了")
+        callback;
+    }
+    goHome(sendMsg());
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

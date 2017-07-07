@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+
+        function eat(p1) {
+            console.log(p1 + "吃饭");
+        }
+
+        function eat(p1, p2) {
+            console.log(p1 + ":" + p2 + "共进晚餐");
+        }
+
+
+        //后定义的同名函数会覆盖前面定义的同名函数,方法重载了
+        eat("hhe");//hhe:undefined共进晚餐
+        eat("will", "neld");
+        //使用arguments来调用函数,arguments只能在函数内使用,可以接收实际参数值,判断实际传进来多少个参数
+        //也可以指定调用几个参数的函数,arguments跟形式参数的多少无关
+        //从新设计函数
+        function eat(p1, p2) {
+            if (arguments.length == 1) {
+                console.log(arguments[0] + "吃饭");
+            } else if (arguments.length == 2) {
+                console.log(arguments[0] + ":" + arguments[1] + "吃牛排");
+            }
+        }
+        eat("will");//will吃饭
+        eat("will", "neld");//will:neld吃牛排
+
+
+        /* 判断变量的类型:1.在java中使用instanceof来判断变量的类型 obj instanceof Type
+         2.使用obj.getClass():keyi 获取到一个变量的实际类型
+         3.zai Js中分为基本类型跟引用类型来区分判断:
+         基本类型:使用typeof来判断,返回变量的类型的小写值,
+         引用类型:使用instanceof来判断,返回boolean值,true/false*/
+        var arr12 = [];
+        console.log(typeof arr12);//object
+        console.log(arr12 instanceof String);//false
+        //对于使用typeof来判断基本类型,其返回值都是该数据类型的全小写名称(字符串),
+        // 如果使用typeof来判断引用类型,其返回值都是object
+        //需要使用instanceof 来进一步判断具体是什么类型的数据,如果new出来的是object类型,就要判断里面写的是什么类型的数据
+        //如果new出来的是其它类型,就直接根据new出来的类型来判断
+
+        var arr = "1233";
+        console.log(typeof arr);//string,类型值都是小写的
+        console.log(arr instanceof String);//false
+
+        var b = new Object("12");
+        console.log(typeof b);//new出来的都是object类型
+        console.log(b instanceof String);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+//    判断arguments是不是一个数组的方法
+        function add(a,b) {
+            console.log(typeof arguments);//object
+            console.log(arguments instanceof Array);//false,是一个伪数组
+        }
+        add(1,2);
+
+        function post(url,data,callback,type) {
+            //判断data类型是不是function类型,如果是,就将data数据往后移动,移到callba位置,
+            //callba位置上的数据移到type上
+            if(data instanceof Function){//typeof data==Function
+                type=callback;
+                callback=data;
+                data=undefined;
+            }
+            console.log(url,data,callback,type);
+        }
+        post("/employee.action");
+        post("/employee.action",{id:5});
+        post("/employee.action",function (){});
+        post("/employee.action",function (){},function (){});
+        post("/employee.action",function (){},{id:5});
+        post("/employee.action",{id:5},{id:5});
+        post("/employee.action",{id:5},"json",function (){});
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
